@@ -2,6 +2,7 @@
 //Aqui en este archivo hacemos toda la configuracion de la db, modelos y servicios
 const setupDatabase = require("./lib/db");
 const setupAgent = require("./lib/agent"); //Es como el servicio de Agente
+const setupMetric = require("./lib/metric"); //Es como el servicio de Metric
 const setupAgentModel = require("./models/agent");
 const setupMetricModel = require("./models/metric");
 const defaults = require("defaults");
@@ -35,7 +36,7 @@ module.exports = async function(config) {
   }
   //Agent es una abstraccion de AgentModel o sea como el servicio que solo brindara los metodos que queremos utilizar
   const Agent = setupAgent(AgentModel);
-  const Metric = {};
+  const Metric = setupMetric(MetricModel, AgentModel);
 
   //Al final retorna el modelo de Agente y de Metrica
   return {

@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "standard --fix",
     "setup": "DEBUG=platziverse:* node setup.js",
-    "test": "DEBUG=platziverse:* nyc --reporter=lcov ava --verbose"
+    "test": "DEBUG=platziverse:* ava test/model-test.js --verbose"
   },
   "keywords": [],
   "author": "",
